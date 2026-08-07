@@ -1,1 +1,1 @@
-const b=document.querySelector(".menu"),m=document.querySelector(".mobile");b.addEventListener("click",()=>m.classList.toggle("open"));document.querySelectorAll(".mobile a").forEach(a=>a.addEventListener("click",()=>m.classList.remove("open")));
+const menu=document.querySelector('.menu');const nav=document.querySelector('.nav nav');if(menu)menu.onclick=()=>nav.classList.toggle('open');
