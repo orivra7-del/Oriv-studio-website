@@ -2,20 +2,22 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+Oriv Studio is currently maintained as a single active website.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported |
+|---|---|
+| Current live version | ✅ |
+| Older versions | ❌ |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability affecting Oriv Studio, please report it privately rather than posting the details publicly.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Email: orivra7@gmail.com
+
+Please include:
+- A description of the issue
+- Steps to reproduce it
+- Any relevant screenshots or technical details
+
+We will review legitimate reports and respond as soon as reasonably possible.
