@@ -1,115 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7eeee">
-  <title>Oriv Studio — Digital experiences that move brands forward</title>
-  <meta name="description" content="Oriv Studio creates premium websites and digital experiences for ambitious brands.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oriv Studio — premium websites and digital experiences for ambitious brands.">
+<title>Oriv Studio — Digital Experiences</title>
+<style>
+:root{--paper:#f7eeee;--cream:#eee9df;--pink:#e6b7c1;--ink:#111;--muted:#6e6868;--line:rgba(17,17,17,.18);--dark:#111;--serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}
+.progress{position:fixed;left:0;top:0;height:3px;width:0;background:#111;z-index:9999}
+header{position:fixed;top:0;left:0;right:0;height:78px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(247,238,238,.88);backdrop-filter:blur(14px);z-index:1000}
+.brand{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.18em}.brand-mark{width:38px;height:38px;display:grid;place-items:center;background:var(--pink);border:1px solid #111;font-family:var(--serif);font-size:12px;line-height:.9}
+nav{display:flex;gap:34px;align-items:center;font-size:12px}nav a{position:relative}nav a:after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:1px;background:#111;transition:.35s}nav a:hover:after{width:100%}.nav-cta{border-bottom:1px solid #111;padding-bottom:4px}.menu{display:none;background:none;border:0;font-size:25px;cursor:pointer}
+main{padding-top:78px}.hero{min-height:calc(100vh - 78px);padding:9vw 5vw 7vw;display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:center}.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+h1{font-size:clamp(55px,8.2vw,132px);line-height:.86;letter-spacing:-.065em;max-width:900px}h1 em,h2 em{font-family:var(--serif);font-weight:400}.hero-copy{max-width:480px;color:var(--muted);font-size:15px;margin-top:38px}.actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1px solid #111;font-size:12px;cursor:pointer;transition:transform .25s,background .25s,color .25s}.button:hover{transform:translateY(-3px)}.button.dark{background:#111;color:#fff}.button.light{background:transparent}
+.hero-art{position:relative;min-height:530px;display:grid;place-items:center}.poster{width:min(100%,520px);aspect-ratio:1/1.08;border:1.5px solid #111;background:#f1e6e2;padding:8%;transform:rotate(2.2deg);box-shadow:18px 18px 0 var(--pink);transition:transform .7s}.poster:hover{transform:rotate(-2deg) translateY(-10px)}.poster small{font-size:9px;letter-spacing:.18em}.poster h2{font-size:clamp(34px,4vw,62px);line-height:.9;letter-spacing:-.05em;margin-top:27%}.poster-rule{height:1px;background:#111;opacity:.35;margin-top:18%}.poster-bars{display:flex;gap:5px;margin-top:8%}.poster-bars span{height:13px;flex:1;background:#cdbfbd}
+.ticker{background:#111;color:#fff;padding:14px 5vw;overflow:hidden;white-space:nowrap;font-size:9px;letter-spacing:.2em}.ticker-track{display:inline-block;animation:marquee 22s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}
+.work{padding:12vw 5vw 14vw}.section-head{display:grid;grid-template-columns:1fr 1fr;gap:5vw;margin-bottom:65px}.section-head h2,.services h2,.process h2,.instagram h2{font-size:clamp(42px,6vw,85px);line-height:.9;letter-spacing:-.06em}.section-head p:last-child{max-width:360px;color:var(--muted);font-size:13px;align-self:end}.work-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;align-items:start}.project{overflow:hidden;margin-bottom:28px;cursor:pointer}.project:nth-child(2){margin-top:10vw}.project:nth-child(3){grid-column:2;margin-top:-5vw}.project-image{aspect-ratio:1.3/1;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:5%;transition:transform .7s}.project:hover .project-image{transform:scale(.975)}.warm{background:#cdb09c}.sage{background:#d8ddd2}.dark-art{background:#3a3836;color:#fff}.project-image span{font-family:var(--serif);font-size:clamp(28px,4vw,66px);text-align:center;letter-spacing:-.05em}.project-image em{font-weight:400}.project-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);padding-top:9px}
+.services{background:var(--cream);padding:11vw 5vw}.services-top{display:grid;grid-template-columns:1fr 1fr;gap:7vw;padding-bottom:55px;border-bottom:1px solid var(--line)}.services-intro{color:var(--muted);font-size:13px;max-width:390px}.service-list{margin-top:5px}.service{display:grid;grid-template-columns:60px 1fr 1fr;gap:25px;padding:27px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}.service:hover{padding-left:12px}.service-num{font-size:10px;color:var(--muted)}.service strong{font-size:14px}.service p{font-size:12px;color:var(--muted)}
+.process{background:#111;color:#fff;padding:11vw 5vw}.process .eyebrow{color:#aaa}.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.2);margin-top:80px}.step{padding:28px 20px 10px 0;border-right:1px solid rgba(255,255,255,.2)}.step:not(:first-child){padding-left:25px}.step:last-child{border-right:0}.step span{font-size:10px;color:#999}.step h3{margin-top:65px;font-size:20px}.step p{color:#999;font-size:12px;margin-top:12px;max-width:190px}
+.about{padding:11vw 5vw;display:grid;grid-template-columns:1fr 1fr;gap:8vw}.about-mark{font-size:clamp(90px,15vw,230px);font-weight:900;letter-spacing:-.1em;line-height:.7}.about h2{font-size:clamp(45px,6vw,85px);line-height:.9;letter-spacing:-.06em}.about p{color:var(--muted);max-width:450px;margin-top:28px;font-size:14px}
+.instagram{background:#eadfe0;padding:8vw 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}.ig-card{min-height:180px;border:1px solid #111;display:flex;align-items:center;justify-content:center;transition:.3s}.ig-card:hover{background:#111;color:#fff;transform:translateY(-5px)}.ig-inner{text-align:center}.ig-inner strong{display:block;font-size:19px}.ig-inner span{font-size:11px;opacity:.65}
+.contact{background:#d7cfbc;padding:10vw 5vw 12vw;display:grid;grid-template-columns:1fr 1fr;gap:8vw}.contact h2{font-size:clamp(50px,7vw,100px);line-height:.85;letter-spacing:-.065em}.contact-copy>p:last-child{max-width:410px;color:var(--muted);font-size:14px;margin-top:35px}form{display:grid;gap:23px}label{font-size:9px;text-transform:uppercase;letter-spacing:.16em}input,textarea{width:100%;display:block;margin-top:8px;border:0;border-bottom:1px solid rgba(17,17,17,.38);background:transparent;padding:12px 0;outline:none;border-radius:0;color:#111}textarea{min-height:100px;resize:vertical}input:focus,textarea:focus{border-bottom-color:#111}.form-status{font-size:12px;color:var(--muted);min-height:18px}form .button{justify-self:start}
+footer{background:#111;color:#fff;padding:55px 5vw 30px}.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:start}.footer-logo{font-size:52px;font-weight:900;letter-spacing:-.08em}.footer-copy{font-size:12px;color:#aaa;max-width:230px}.footer-ig{text-decoration:underline;text-underline-offset:5px;font-size:12px}.footer-bottom{border-top:1px solid rgba(255,255,255,.18);margin-top:60px;padding-top:18px;display:flex;justify-content:space-between;color:#777;font-size:10px}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s,transform .9s}.reveal.visible{opacity:1;transform:none}.delay{transition-delay:.12s}
+@media(max-width:800px){
+header{height:64px;padding:0 18px}main{padding-top:64px}nav{position:absolute;left:12px;right:12px;top:72px;background:var(--paper);border:1px solid var(--line);padding:22px;display:none;flex-direction:column;align-items:flex-start;gap:20px}.nav-cta{display:none}nav.open{display:flex}.menu{display:block}
+.hero{min-height:auto;padding:75px 18px 80px;display:block}h1{font-size:clamp(53px,15vw,82px)}.hero-copy{font-size:13px;margin-top:28px}.hero-art{min-height:auto;margin-top:65px;padding:0 10px}.poster{width:92%;box-shadow:12px 12px 0 var(--pink)}
+.ticker{padding:12px 18px;font-size:8px}.work,.services,.process,.about,.instagram,.contact{padding-left:18px;padding-right:18px}.work{padding-top:90px;padding-bottom:100px}.section-head,.services-top,.about,.instagram,.contact{grid-template-columns:1fr;gap:35px}.section-head{margin-bottom:40px}.section-head p:last-child{align-self:auto}.work-grid{display:block}.project,.project:nth-child(2),.project:nth-child(3){margin:0 0 35px}.project-image{aspect-ratio:1.12/1}
+.services{padding-top:90px;padding-bottom:90px}.service{grid-template-columns:32px 1fr;gap:10px;padding:23px 0}.service p{grid-column:2}.service strong{font-size:13px}
+.process{padding-top:90px;padding-bottom:90px}.steps{grid-template-columns:1fr 1fr;margin-top:55px}.step{min-height:190px}.step:nth-child(2){border-right:0}.step:nth-child(3),.step:nth-child(4){border-top:1px solid rgba(255,255,255,.2)}.step:nth-child(3){padding-left:0}.step h3{margin-top:35px}
+.about{padding-top:90px;padding-bottom:90px}.about-mark{font-size:26vw}.instagram{padding-top:90px;padding-bottom:90px}.ig-card{min-height:150px}.contact{padding-top:90px;padding-bottom:90px}form{gap:20px}footer{padding-left:18px;padding-right:18px}.footer-top{display:grid;grid-template-columns:1fr 1fr}.footer-logo{grid-column:1/-1}.footer-bottom{gap:20px;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <div class="progress"><span id="progressBar"></span></div>
+<div class="progress" id="progress"></div>
 
-  <header class="nav">
-    <a class="brand" href="#top" aria-label="Oriv Studio home">
-      <span class="brand-mark">OR<span>IV</span></span>
-      <span class="brand-name">ORIV STUDIO</span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-    <nav id="navLinks">
-      <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a>
-      <a class="nav-cta" href="#contact">Start a project ↗</a>
-    </nav>
-  </header>
+<header>
+<a href="#top" class="brand"><span class="brand-mark">OR<br>IV</span><span>ORIV STUDIO</span></a>
+<nav id="nav"><a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact" class="nav-cta">Start a project ↗</a></nav>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Independent digital studio</p>
-        <h1>Websites built<br>to <em>move</em> brands<br>forward.</h1>
-        <p class="hero-sub">Oriv Studio creates distinctive websites and digital experiences for ambitious businesses that want to look as serious online as they are offline.</p>
-        <div class="actions"><a class="btn btn-dark" href="#contact">Start a project <span>↗</span></a><a class="btn btn-light" href="#work">Explore work <span>↓</span></a></div>
-      </div>
-      <div class="hero-visual reveal delay-1">
-        <div class="floating-card card-back"></div>
-        <div class="floating-card card-main">
-          <span class="mini">ORIV / DIGITAL EXPERIENCE</span>
-          <h2>Make your<br><em>presence</em><br>impossible<br>to ignore.</h2>
-          <div class="wire"><i></i><i></i><i></i></div>
-        </div>
-        <div class="orbit-dot"></div>
-      </div>
-    </section>
+<main id="top">
+<section class="hero">
+<div class="hero-copy-wrap reveal">
+<p class="eyebrow">• Independent digital studio</p>
+<h1>Websites built<br>to <em>move</em><br>brands forward.</h1>
+<p class="hero-copy">Oriv Studio creates premium websites and digital experiences that make ambitious businesses look serious, distinctive and impossible to overlook.</p>
+<div class="actions"><a class="button dark" href="#contact">Start a project ↗</a><a class="button light" href="#work">Explore work ↓</a></div>
+</div>
+<div class="hero-art reveal delay"><div class="poster"><small>ORIV / DIGITAL EXPERIENCE</small><h2>Make your<br><em>presence</em><br>impossible<br>to ignore.</h2><div class="poster-rule"></div><div class="poster-bars"><span></span><span></span><span></span></div></div></div>
+</section>
 
-    <div class="ticker" aria-hidden="true"><div>WEB DESIGN · DEVELOPMENT · DIGITAL STRATEGY · AI-ASSISTED CREATIVE · GROWTH SYSTEMS · </div><div>WEB DESIGN · DEVELOPMENT · DIGITAL STRATEGY · AI-ASSISTED CREATIVE · GROWTH SYSTEMS · </div></div>
+<div class="ticker"><div class="ticker-track">WEB DESIGN · DEVELOPMENT · DIGITAL STRATEGY · AI-ASSISTED CREATIVE · GROWTH SYSTEMS · WEB DESIGN · DEVELOPMENT · DIGITAL STRATEGY · AI-ASSISTED CREATIVE · GROWTH SYSTEMS ·</div></div>
 
-    <section id="work" class="section work">
-      <div class="section-intro reveal"><p class="eyebrow">Selected work</p><p>Designed to feel premium before a visitor reads a single word.</p></div>
-      <div class="work-grid">
-        <article class="project reveal"><div class="project-art art-1"><span>ATELIER <em>NO. 07</em></span></div><small>Atelier No. 07</small><b>Fashion / Brand site</b></article>
-        <article class="project reveal delay-1"><div class="project-art art-2"><span>FORM <em>DENTAL</em></span></div><small>Form Dental</small><b>Healthcare / Conversion</b></article>
-        <article class="project project-wide reveal delay-2"><div class="project-art art-3"><span>MONUMENT <em>ESTATES</em></span></div><small>Monument Estates</small><b>Real estate / Luxury</b></article>
-      </div>
-    </section>
+<section class="work" id="work">
+<div class="section-head reveal"><div><p class="eyebrow">• Selected work</p><h2>Designed to feel premium<br>before a visitor reads<br>a single word.</h2></div><p>Concept-led digital experiences with strong typography, clear hierarchy and conversion-focused structure.</p></div>
+<div class="work-grid">
+<article class="project reveal"><div class="project-image warm"><span>ATELIER <em>NO. 07</em></span></div><div class="project-meta"><span>Atelier No. 07</span><span>Fashion / Brand Site</span></div></article>
+<article class="project reveal delay"><div class="project-image sage"><span>FORM <em>DENTAL</em></span></div><div class="project-meta"><span>Form Dental</span><span>Healthcare / Conversion</span></div></article>
+<article class="project reveal"><div class="project-image dark-art"><span>MONUMENT <em>ESTATES</em></span></div><div class="project-meta"><span>Monument Estates</span><span>Real Estate / Luxury</span></div></article>
+</div>
+</section>
 
-    <section id="services" class="section services">
-      <div class="service-heading reveal"><p class="eyebrow">What we do</p><h2>Less noise.<br><em>More signal.</em></h2></div>
-      <div class="service-list">
-        <div class="service reveal"><span>01</span><strong>Web Design & Development</strong><p>Responsive, fast websites built around your business—not a template.</p></div>
-        <div class="service reveal"><span>02</span><strong>Digital Strategy</strong><p>Positioning, structure and conversion thinking before pixels.</p></div>
-        <div class="service reveal"><span>03</span><strong>AI-Assisted Creative</strong><p>Faster production without sacrificing a distinctive visual direction.</p></div>
-        <div class="service reveal"><span>04</span><strong>Growth Support</strong><p>Ongoing iteration, content systems and digital improvements.</p></div>
-      </div>
-    </section>
+<section class="services" id="services">
+<div class="services-top reveal"><div><p class="eyebrow">• What we do</p><h2>Less noise.<br><em>More signal.</em></h2></div><p class="services-intro">We combine design, development and strategy to create digital experiences that make a brand easier to understand — and easier to trust.</p></div>
+<div class="service-list">
+<div class="service reveal"><span class="service-num">01</span><strong>Web Design & Development</strong><p>Responsive, fast websites built around your business — not a template.</p></div>
+<div class="service reveal"><span class="service-num">02</span><strong>Digital Strategy</strong><p>Positioning, structure and conversion thinking before pixels.</p></div>
+<div class="service reveal"><span class="service-num">03</span><strong>AI-Assisted Creative</strong><p>Faster production without sacrificing a distinctive visual direction.</p></div>
+<div class="service reveal"><span class="service-num">04</span><strong>Growth Support</strong><p>Ongoing iteration, content systems and digital improvements after launch.</p></div>
+</div>
+</section>
 
-    <section id="process" class="section process">
-      <div class="process-head reveal"><p class="eyebrow">How we work</p><h2>Simple process.<br><em>Serious output.</em></h2></div>
-      <div class="steps">
-        <div class="step reveal"><span>01</span><h3>Discover</h3><p>Goals, audience, offer and the gap between where the brand is and where it needs to be.</p></div>
-        <div class="step reveal"><span>02</span><h3>Define</h3><p>Structure, visual direction and a clear digital strategy.</p></div>
-        <div class="step reveal"><span>03</span><h3>Design</h3><p>Art direction and interfaces built around clarity and character.</p></div>
-        <div class="step reveal"><span>04</span><h3>Launch</h3><p>Build, test, polish and put the experience in front of real people.</p></div>
-      </div>
-    </section>
+<section class="process" id="process"><div class="reveal"><p class="eyebrow">• How we work</p><h2>A simple process.<br><em>Serious output.</em></h2></div>
+<div class="steps">
+<div class="step reveal"><span>01</span><h3>Discover</h3><p>Goals, audience, offer and the gap between where the brand is and where it should be.</p></div>
+<div class="step reveal"><span>02</span><h3>Define</h3><p>Structure, visual direction and a clear digital strategy.</p></div>
+<div class="step reveal"><span>03</span><h3>Design</h3><p>Art direction and interfaces built around clarity and character.</p></div>
+<div class="step reveal"><span>04</span><h3>Launch</h3><p>Build, test, polish and put the experience in front of real people.</p></div>
+</div></section>
 
-    <section id="about" class="section about">
-      <div class="about-mark">ORIV</div><div class="about-copy reveal"><p class="eyebrow">About Oriv</p><h2>Digital experiences<br>with <em>intent.</em></h2><p>We design digital identities and websites that make growing brands easier to understand, trust and remember.</p></div>
-    </section>
+<section class="about" id="about"><div class="about-mark reveal">ORIV.</div><div class="reveal delay"><p class="eyebrow">• About Oriv</p><h2>Digital experiences<br>with <em>intent.</em></h2><p>We design digital identities and websites that make growing brands easier to understand, trust and remember. Every page is built with a reason to exist — and a job to do.</p></div></section>
 
-    <section class="section instagram reveal">
-      <div><p class="eyebrow">Follow the studio</p><h2>More work.<br><em>Behind the scenes.</em></h2></div>
-      <a class="ig-card" href="https://www.instagram.com/orivstudio/" target="_blank" rel="noopener noreferrer" aria-label="Open Oriv Studio on Instagram">
-        <span class="ig-icon">◎</span><strong>@orivstudio</strong><small>Instagram ↗</small>
-      </a>
-    </section>
+<section class="instagram"><div class="reveal"><p class="eyebrow">• Follow the studio</p><h2>More work.<br><em>Behind the scenes.</em></h2></div><a class="ig-card reveal delay" href="https://www.instagram.com/orivstudio/" target="_blank" rel="noopener noreferrer"><div class="ig-inner"><strong>◎ @orivstudio</strong><span>Instagram ↗</span></div></a></section>
 
-    <section id="contact" class="contact">
-      <div class="contact-copy reveal"><p class="eyebrow">Have a project?</p><h2>Let's make your next<br><em>first impression</em> count.</h2><p>Tell us what you're building. You'll get a response directly in your inbox.</p></div>
-      <form id="contactForm" class="contact-form reveal delay-1">
-        <input type="hidden" name="_subject" value="New Oriv Studio project enquiry">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot">
-        <label>Name<input name="name" type="text" autocomplete="name" placeholder="Your name" required></label>
-        <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
-        <label>Business / Brand<input name="business" type="text" placeholder="Brand name"></label>
-        <label>What do you need?<textarea name="message" rows="5" placeholder="Website, redesign, strategy, growth..." required></textarea></label>
-        <button class="btn btn-dark submit-btn" type="submit">Send enquiry <span>↗</span></button>
-        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-  </main>
+<section class="contact" id="contact">
+<div class="contact-copy reveal"><p class="eyebrow">• Have a project?</p><h2>Let's make your next<br><em>first impression</em><br>count.</h2><p>Tell us what you're building. Your enquiry will be sent directly to the Oriv Studio inbox.</p></div>
 
-  <footer>
-    <div class="footer-top"><div class="footer-logo">ORIV<span>®</span></div><p>We design digital experiences<br>with intent.</p><a href="https://www.instagram.com/orivstudio/" target="_blank" rel="noopener">Instagram ↗</a></div>
-    <div class="footer-bottom"><span>© 2026 Oriv Studio</span><span>Independent digital studio</span><a href="#top">Back to top ↑</a></div>
-  </footer>
+<form id="contactForm" class="reveal delay" action="https://formsubmit.co/orivra7@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New Oriv Studio Project Enquiry">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://oriv-studio-website.vercel.app/">
 
-  <div class="toast" id="toast" aria-hidden="true"><strong>Enquiry sent.</strong><span>We'll get back to you soon.</span></div>
-  <script src="script.js"></script>
+<label>Name<input type="text" name="name" placeholder="Your name" required></label>
+<label>Email<input type="email" name="email" placeholder="you@company.com" required></label>
+<label>Business / Brand<input type="text" name="business" placeholder="Brand name" required></label>
+<label>What do you need?<textarea name="message" placeholder="Website, redesign, strategy, growth..." required></textarea></label>
+<div class="form-status" id="formStatus" aria-live="polite"></div>
+<button class="button dark" type="submit" id="submitButton">Send enquiry ↗</button>
+</form>
+</section>
+</main>
+
+<footer><div class="footer-top"><div class="footer-logo">ORIV.</div><p class="footer-copy">We design digital experiences<br>with intent.</p><a class="footer-ig" href="https://www.instagram.com/orivstudio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div><div class="footer-bottom"><span>© 2026 Oriv Studio</span><span>Independent digital studio</span><a href="#top">Back to top ↑</a></div></footer>
+
+<script>
+const menu=document.getElementById("menu"),nav=document.getElementById("nav");
+menu.addEventListener("click",()=>{nav.classList.toggle("open");menu.textContent=nav.classList.contains("open")?"×":"☰"});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.textContent="☰"}));
+const progress=document.getElementById("progress");
+window.addEventListener("scroll",()=>{const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(max>0?(scrollY/max)*100:0)+"%"},{passive:true});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+const form=document.getElementById("contactForm"),button=document.getElementById("submitButton"),status=document.getElementById("formStatus");
+form.addEventListener("submit",()=>{button.disabled=true;button.textContent="Sending…";status.textContent="Sending your enquiry…"});
+</script>
 </body>
 </html>
