@@ -6,7 +6,7 @@ Files:
 - oriv-logo.png
 
 Before deploying:
-1. In index.html replace YOUR_GMAIL@gmail.com with the Gmail address that should receive enquiries.
+1. In index.html replace orivra7@gmail.com with the Gmail address that should receive enquiries.
 2. Replace the Instagram URL if needed.
 3. Keep index.html lowercase.
 4. Upload all four files to the root of your GitHub repository.
