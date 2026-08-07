@@ -1,0 +1,8 @@
+ORIV STUDIO WEBSITE SETUP
+
+1. Upload/replace index.html, styles.css, script.js and oriv-logo.png in the ROOT of your GitHub repository.
+2. Keep the filename exactly: index.html (lowercase).
+3. In index.html replace YOUR_GMAIL@gmail.com with the Gmail address that should receive enquiries.
+4. Replace YOUR_INSTAGRAM_USERNAME with the Oriv Studio Instagram username.
+5. The form uses FormSubmit. The first form submission can require an activation email. After activation, enquiries are forwarded to the Gmail address.
+6. Vercel will redeploy automatically after the GitHub commit.
