@@ -1,1 +1,15 @@
-const glow=document.querySelector('.glow');document.addEventListener('pointermove',e=>{if(glow){glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'}});const bar=document.querySelector('.bar');addEventListener('scroll',()=>bar.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%');const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));const menu=document.querySelector('.menu'),nav=document.querySelector('nav');menu.onclick=()=>nav.classList.toggle('open');document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+const progress=document.querySelector('.progress');
+const menu=document.querySelector('.menu');
+const mobile=document.querySelector('.mobile-menu');
+menu?.addEventListener('click',()=>mobile.classList.toggle('open'));
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>mobile.classList.remove('open')));
+
+const io=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+window.addEventListener('scroll',()=>{
+ const max=document.documentElement.scrollHeight-innerHeight;
+ progress.style.width=(max>0?(scrollY/max)*100:0)+'%';
+},{passive:true});
