@@ -1,0 +1,7 @@
+# Temporary scripts & test artifacts
+update_*.js
+apply_*.js
+fix_*.js
+test_*.js
+test_*.txt
+*.tmp

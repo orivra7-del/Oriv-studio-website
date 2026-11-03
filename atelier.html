@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier No. 07 — Haute Couture &amp; Ready-to-Wear Paris</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fdfbf7;
+      --surface: #f4ede4;
+      --text: #161413;
+      --muted: #79716b;
+      --gold: #b38b4d;
+      --line: rgba(22, 20, 19, 0.12);
+      --font-display: 'Bodoni Moda', 'Didot', 'Bodoni MT', Georgia, serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Tenor Sans', -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Studio Back Bar */
+    .studio-badge {
+      background: #090909;
+      color: #F4F0E8;
+      font-size: 0.75rem;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      border-bottom: 1px solid rgba(244, 240, 232, 0.08);
+    }
+    .studio-badge a {
+      color: #F8591F;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .studio-badge a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      padding: 24px clamp(20px, 5vw, 60px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 36px;
+      z-index: 1000;
+    }
+    .brand { font-family: var(--font-display); font-size: 1.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+    nav { display: flex; gap: 32px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    nav a:hover { color: var(--gold); }
+    .header-cta { border: 1px solid var(--text); padding: 8px 18px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.14em; transition: 0.3s; }
+    .header-cta:hover { background: var(--text); color: var(--bg); }
+
+    /* Hero */
+    .hero {
+      min-height: 85vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      padding: clamp(40px, 6vw, 90px) clamp(20px, 5vw, 60px);
+      gap: 40px;
+    }
+    .eyebrow { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 6.8vw, 5.8rem); line-height: 0.98; letter-spacing: -0.01em; font-weight: 500; }
+    .hero h1 em { font-family: var(--font-display); font-style: italic; font-weight: 400; }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 480px; margin: 28px 0 36px; line-height: 1.7; }
+    .btn-wrap { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-luxury { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; background: var(--text); color: var(--bg); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; transition: 0.3s; }
+    .btn-luxury:hover { background: var(--gold); color: #fff; }
+    .btn-outline { border: 1px solid var(--text); padding: 14px 32px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; transition: 0.3s; }
+    .btn-outline:hover { background: var(--text); color: var(--bg); }
+
+    .hero-visual {
+      background: linear-gradient(to top, rgba(26,23,21,0.9) 0%, rgba(26,23,21,0.2) 60%), url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+      color: #f7ede8;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 20px 20px 0 var(--surface);
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.25), transparent 70%);
+    }
+    .hero-tag { font-family: var(--font-display); font-size: 1.8rem; font-style: italic; font-weight: 600; line-height: 1.2; margin-bottom: 8px; z-index: 2; }
+    .hero-subtag { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.85; z-index: 2; }
+
+    /* Collections */
+    .section { padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 60px); }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 500; margin-bottom: 12px; }
+    .grid-lookbook { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 48px; }
+    .look-card { border: 1px solid var(--line); background: #fff; padding: 18px; transition: transform 0.4s; }
+    .look-card:hover { transform: translateY(-6px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
+    .look-art { aspect-ratio: 3/4; background: var(--surface); overflow: hidden; margin-bottom: 18px; border-radius: 2px; }
+    .look-art img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .look-card:hover .look-art img { transform: scale(1.05); }
+    .look-info { display: flex; justify-content: space-between; align-items: baseline; }
+    .look-name { font-family: var(--font-display); font-size: 1.25rem; font-style: italic; font-weight: 600; }
+    .look-price { font-family: var(--font-sans); font-size: 0.85rem; color: var(--gold); font-weight: 600; letter-spacing: 0.08em; }
+    .look-desc { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+
+    /* Philosophy */
+    .philosophy { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+    .philosophy-inner { max-width: 860px; margin: 0 auto; }
+    .philosophy q { font-family: var(--font-serif); font-size: clamp(1.6rem, 3.2vw, 2.7rem); font-style: italic; font-weight: 300; line-height: 1.45; color: var(--text); }
+    .philosophy cite { display: block; margin-top: 24px; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+
+    /* Booking Form */
+    .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .form-box { background: #fff; padding: clamp(24px, 4vw, 44px); border: 1px solid var(--line); }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+    .form-group input, .form-group select { width: 100%; border: 1px solid var(--line); padding: 12px; background: var(--bg); font-family: inherit; }
+
+    /* Footer */
+    footer { padding: 60px clamp(20px, 5vw, 60px) 30px; border-top: 1px solid var(--line); background: #1a1715; color: #eae4dd; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-brand { font-family: var(--font-display); font-size: 2rem; margin-bottom: 12px; }
+    .footer-col-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.78rem; opacity: 0.6; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .booking-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Studio Link -->
+  <div class="studio-badge">
+    <span>✦ ORIV STUDIO Showcase</span>
+    <a href="index.html#work">← Back to ORIV STUDIO</a>
+  </div>
+
+  <header>
+    <a href="#" class="brand">Atelier No. 07</a>
+    <nav>
+      <a href="#collection">Collections</a>
+      <a href="#philosophy">Maison</a>
+      <a href="#runway">Runway</a>
+      <a href="#appointment">Private Client</a>
+    </nav>
+    <a href="#appointment" class="header-cta">Book Appointment</a>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Autumn / Winter 2026 Collection</p>
+        <h1>Form in<br><em>perpetual motion.</em></h1>
+        <p>
+          Bespoke tailoring and artisanal silhouettes handcrafted in our 8th arrondissement ateliers. Designed for those who value quiet grandeur over fleeting spectacle.
+        </p>
+        <div class="btn-wrap">
+          <a href="#collection" class="btn-luxury">Explore Collection</a>
+          <a href="#appointment" class="btn-outline">Private Salon Salon Booking</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-tag">LOOK 01 // LE SMOKING CRÉPUSCULE</div>
+        <div class="hero-subtag">Pure Double-Faced Silk &amp; Italian Cashmere</div>
+      </div>
+    </section>
+
+    <!-- Collection Gallery -->
+    <section class="section" id="collection">
+      <div id="runway" style="position: relative; top: -80px;"></div>
+      <p class="eyebrow">The Catalog</p>
+      <h2 class="section-title">Selected Autumn Silhouettes</h2>
+      <p style="color: var(--muted); max-width: 520px;">
+        Each garment is numbered and limited to twenty-four worldwide editions, individually tailored to client measurements.
+      </p>
+
+      <div class="grid-lookbook">
+        
+        <article class="look-card">
+          <div class="look-art">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Structured Sculpt Cape" loading="lazy">
+          </div>
+          <div class="look-info">
+            <h3 class="look-name">Structured Sculpt Cape</h3>
+            <span class="look-price">€2,850</span>
+          </div>
+          <p class="look-desc">Raw wool and structured horn closure</p>
+        </article>
+
+        <article class="look-card">
+          <div class="look-art">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Draped Silk Chemisier" loading="lazy">
+          </div>
+          <div class="look-info">
+            <h3 class="look-name">Draped Silk Chemisier</h3>
+            <span class="look-price">€1,420</span>
+          </div>
+          <p class="look-desc">Bleached silk crêpe with mother-of-pearl buttons</p>
+        </article>
+
+        <article class="look-card">
+          <div class="look-art">
+            <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80" alt="Couture Column Gown" loading="lazy">
+          </div>
+          <div class="look-info">
+            <h3 class="look-name">Couture Column Gown</h3>
+            <span class="look-price">€4,600</span>
+          </div>
+          <p class="look-desc">Heavy velvet with open cowl back</p>
+        </article>
+
+        <article class="look-card">
+          <div class="look-art">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Archival Trench Overcoat" loading="lazy">
+          </div>
+          <div class="look-info">
+            <h3 class="look-name">Archival Trench Overcoat</h3>
+            <span class="look-price">€3,200</span>
+          </div>
+          <p class="look-desc">Water-resistant gabardine with calfskin trim</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Maison Philosophy -->
+    <section class="section philosophy" id="philosophy">
+      <div class="philosophy-inner">
+        <p class="eyebrow">Maison Philosophy</p>
+        <q>
+          True luxury is not defined by excess, but by the relentless elimination of everything that does not serve beauty, craft, and permanence.
+        </q>
+        <cite>— Hélène de Montmirail, Creative Director</cite>
+      </div>
+    </section>
+
+    <!-- Private Appointment -->
+    <section class="section" id="appointment">
+      <div class="booking-grid">
+        <div>
+          <p class="eyebrow">Private Client Services</p>
+          <h2 class="section-title">Schedule a Private Atelier Fitting</h2>
+          <p style="color: var(--muted); margin: 20px 0 30px; line-height: 1.7;">
+            We welcome private fittings at our salons in Paris, Milan, and New York, as well as concierge private trunk appointments for international collectors.
+          </p>
+          <div style="border-left: 2px solid var(--gold); padding-left: 18px; margin-bottom: 24px;">
+            <strong>Maison Paris</strong>
+            <p style="font-size: 0.85rem; color: var(--muted);">14 Rue François 1er, 75008 Paris</p>
+          </div>
+          <div style="border-radius: 4px; overflow: hidden; height: 190px; border: 1px solid var(--line);">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="Parisian Salon Fitting Suite" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+
+        <div class="form-box">
+          <form onsubmit="event.preventDefault(); alert('Fitting request sent to Atelier No. 07 concierge.');">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Madame / Monsieur" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="client@domain.com" required>
+            </div>
+            <div class="form-group">
+              <label>Salon Location</label>
+              <select>
+                <option>Paris — 14 Rue François 1er</option>
+                <option>Milan — Via Monte Napoleone</option>
+                <option>New York — Madison Avenue</option>
+                <option>Private Residence Consultation</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-luxury" style="width: 100%; border: none; cursor: pointer;">
+              Request Fitting Invitation
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ATELIER NO. 07</div>
+        <p style="font-size: 0.85rem; opacity: 0.7; max-width: 280px;">
+          Haute Couture &amp; Ready-to-Wear Maison founded in Paris.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Salons</div>
+        <p style="font-size: 0.82rem; line-height: 1.8; opacity: 0.8;">
+          Paris<br>Milan<br>New York<br>Tokyo
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <p style="font-size: 0.82rem; line-height: 1.8; opacity: 0.8;">
+          Bespoke Tailoring<br>Bridal Couture<br>VIP Trunk Shows<br>Archival Restoration
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Digital Flagship</div>
+        <p style="font-size: 0.82rem; line-height: 1.8; opacity: 0.8;">
+          Engineered by<br>
+          <a href="index.html" style="color: var(--gold); text-decoration: underline;">Oriv Studio ↗</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Atelier No. 07 Paris. All rights reserved.</div>
+      <a href="index.html#work" style="color: #6366f1;">← Back to Oriv Studio</a>
+    </div>
+  </footer>
+
+</body>
+</html>
