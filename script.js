@@ -126,6 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
       isTicking = true;
     }
   }, { passive: true });
+
+  window.addEventListener("touchmove", () => {
+    if (!isTicking) {
+      requestAnimationFrame(onScroll);
+      isTicking = true;
+    }
+  }, { passive: true });
   onScroll();
 
   if (scrollToTopBtn) {
@@ -162,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right, .reveal-fade");
 
   if ("IntersectionObserver" in window) {
+    const isMobile = window.innerWidth <= 768;
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
@@ -171,7 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      {
+        threshold: isMobile ? 0.05 : 0.12,
+        rootMargin: isMobile ? "0px 0px -10px 0px" : "0px 0px -40px 0px"
+      }
     );
 
     revealElements.forEach((el) => revealObserver.observe(el));
@@ -681,11 +692,40 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
+        mouse.radius = 140;
       } else {
         mouse.x = null;
         mouse.y = null;
       }
     });
+
+    // Touch interaction for hero particle mesh canvas on mobile & tablets
+    function handleCanvasTouch(e) {
+      if (e.touches && e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        if (touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+          mouse.x = touch.clientX - rect.left;
+          mouse.y = touch.clientY - rect.top;
+          mouse.radius = 160;
+        } else {
+          mouse.x = null;
+          mouse.y = null;
+        }
+      }
+    }
+
+    function handleCanvasTouchEnd() {
+      setTimeout(() => {
+        mouse.x = null;
+        mouse.y = null;
+      }, 350);
+    }
+
+    window.addEventListener("touchstart", handleCanvasTouch, { passive: true });
+    window.addEventListener("touchmove", handleCanvasTouch, { passive: true });
+    window.addEventListener("touchend", handleCanvasTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", handleCanvasTouchEnd, { passive: true });
 
     function animateParticles() {
       ctx.clearRect(0, 0, width, height);
@@ -776,6 +816,34 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.removeProperty("--mouse-x");
       card.style.removeProperty("--mouse-y");
     });
+
+    // Touch support for dynamic radial spotlight glow on mobile
+    card.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches[0]) {
+        const rect = card.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    }, { passive: true });
+
+    card.addEventListener("touchmove", (e) => {
+      if (e.touches && e.touches[0]) {
+        const rect = card.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    }, { passive: true });
+
+    card.addEventListener("touchend", () => {
+      setTimeout(() => {
+        card.style.removeProperty("--mouse-x");
+        card.style.removeProperty("--mouse-y");
+      }, 600);
+    }, { passive: true });
   });
 
   /* ==========================================================================
@@ -836,7 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
           obs.unobserve(el);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: window.innerWidth <= 768 ? 0.1 : 0.25 });
 
     counterElements.forEach((el) => counterObserver.observe(el));
   }

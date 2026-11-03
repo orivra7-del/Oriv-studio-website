@@ -357,7 +357,7 @@ img {
 
 /* Mobile Nav Drawer */
 .mobile-nav {
-  display: none;
+  display: flex;
   position: fixed;
   top: 80px;
   left: 0;
@@ -370,10 +370,20 @@ img {
   flex-direction: column;
   gap: 18px;
   z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav.open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .mobile-nav .nav-link {
@@ -2163,6 +2173,45 @@ img {
     width: 42px;
     height: 42px;
   }
+
+  /* Mobile Scroll Animation Physics & Fluid Timing */
+  .reveal,
+  .reveal-up,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right,
+  .reveal-fade {
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal,
+  .reveal-up {
+    transform: translateY(22px);
+  }
+
+  .reveal-scale {
+    transform: scale(0.96) translateY(14px);
+  }
+
+  .reveal-left {
+    transform: translateX(-18px);
+  }
+
+  .reveal-right {
+    transform: translateX(18px);
+  }
+
+  .delay-1 { transition-delay: 0.08s; }
+  .delay-2 { transition-delay: 0.14s; }
+  .delay-3 { transition-delay: 0.20s; }
+  .delay-4 { transition-delay: 0.26s; }
+  .delay-5 { transition-delay: 0.32s; }
+
+  /* Dynamic Ticker Velocity on Mobile */
+  .ticker-track {
+    animation-duration: 20s;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2235,4 +2284,24 @@ img {
   color: var(--accent-primary);
   font-weight: 600;
   margin-left: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Tactile Mobile Touch Micro-Interactions
+   -------------------------------------------------------------------------- */
+@media (hover: none), (pointer: coarse) {
+  .bento-card:active,
+  .project-card:active {
+    transform: scale(0.985);
+    transition: transform 0.12s ease;
+  }
+
+  .btn:active,
+  .filter-btn:active,
+  .choice-box:active,
+  .addon-item:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+  }
 }
