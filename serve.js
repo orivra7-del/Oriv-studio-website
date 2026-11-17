@@ -14,8 +14,17 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  const safePath = path.normalize(decodeURI(req.url.split('?')[0])).replace(/^(\.\.[\/\\])+/, '');
-  let filePath = path.join(__dirname, safePath === '/' || safePath === '\\' ? 'index.html' : safePath);
+  let safePath = path.normalize(decodeURI(req.url.split('?')[0])).replace(/^(\.\.[\/\\])+/, '');
+  safePath = safePath.replace(/^[\/\\]+/, '');
+
+  let targetFile = safePath;
+  if (!safePath || safePath === '.' || safePath === 'founder' || safePath === 'founder.html') {
+    targetFile = 'founder.html';
+  } else if (safePath === 'studio' || safePath === 'studio.html' || safePath === 'index.html' || safePath === 'index') {
+    targetFile = 'index.html';
+  }
+
+  let filePath = path.join(__dirname, targetFile);
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
