@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — ORIV STUDIO</title>
+  <meta name="description" content="Privacy Policy and Digital Personal Data Protection (DPDP) Act compliance disclosures for Oriv Studio. Learn how your data is collected, processed, and safeguarded.">
+  <meta name="theme-color" content="#090909">
+
+  <!-- Google Fonts: Editorial Serif, Clean Sans & Monospace -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #090909;
+      --bg-secondary: #121212;
+      --bg-card: #181818;
+      --bg-card-hover: #1f1f1f;
+      --accent-primary: #F8591F;
+      --accent-glow: rgba(248, 89, 31, 0.25);
+      --text-primary: #F4F0E8;
+      --text-muted: #9E9A92;
+      --text-dim: #6E6A62;
+      --border-subtle: rgba(244, 240, 232, 0.08);
+      --border-accent: rgba(248, 89, 31, 0.35);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Ambient Aura */
+    .ambient-glow {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient-top { top: -150px; right: 10%; }
+
+    /* Navigation Header */
+    .privacy-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 9, 9, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 18px clamp(20px, 5vw, 60px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 18px;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      background: rgba(244, 240, 232, 0.03);
+    }
+    .back-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(248, 89, 31, 0.08);
+      transform: translateX(-2px);
+    }
+
+    /* Main Container */
+    .privacy-container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: clamp(40px, 7vw, 90px) 24px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Headline */
+    .policy-hero {
+      margin-bottom: 54px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .policy-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      margin-bottom: 16px;
+    }
+    .policy-tag::before {
+      content: '●';
+      font-size: 0.65rem;
+    }
+    .policy-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .policy-title em {
+      font-style: italic;
+      color: var(--accent-primary);
+      font-weight: 400;
+    }
+    .policy-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .meta-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 4px;
+    }
+
+    /* Policy Content Sections */
+    .policy-section {
+      margin-bottom: 48px;
+    }
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .policy-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .policy-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Structured Data Tables */
+    .privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 22px 0;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+    .privacy-table th, .privacy-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .privacy-table th {
+      background: rgba(244, 240, 232, 0.04);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .privacy-table td {
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+    .privacy-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Bento Cards for Rights & Grievance */
+    .bento-card-block {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin: 22px 0;
+    }
+    .bento-card-block.highlight {
+      border-color: var(--border-accent);
+      background: linear-gradient(180deg, rgba(248, 89, 31, 0.04) 0%, var(--bg-secondary) 100%);
+    }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .right-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+    .right-card:hover {
+      border-color: var(--accent-primary);
+    }
+    .right-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .right-title span {
+      color: var(--accent-primary);
+      font-size: 0.9rem;
+    }
+    .right-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Grievance Officer Profile Card */
+    .officer-card {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .officer-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(248, 89, 31, 0.15);
+      border: 1px solid var(--accent-primary);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .officer-details {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .officer-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .officer-role {
+      font-size: 0.82rem;
+      color: var(--accent-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+    .officer-contact {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .officer-contact a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .officer-contact a:hover {
+      color: var(--accent-primary);
+    }
+
+    /* Callout Alert */
+    .privacy-alert {
+      border-left: 3px solid var(--accent-primary);
+      background: rgba(248, 89, 31, 0.06);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .privacy-alert strong {
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    .privacy-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 36px 0;
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    @media (max-width: 768px) {
+      .policy-meta-grid { grid-template-columns: 1fr; }
+      .privacy-table th, .privacy-table td { padding: 10px 12px; font-size: 0.8rem; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .officer-card { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Lighting Aura -->
+  <div class="ambient-glow ambient-top" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="privacy-header">
+    <div class="brand-group">
+      <a href="studio.html" aria-label="ORIV STUDIO Homepage">
+        <img src="oriv-logo.png" alt="ORIV STUDIO Logo" class="brand-logo-img">
+      </a>
+      <span class="brand-name">ORIV STUDIO</span>
+    </div>
+    <div class="nav-actions">
+      <a href="studio.html" class="back-btn">
+        <span>← Return to Studio</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Container -->
+  <main class="privacy-container">
+
+    <!-- Hero Header -->
+    <header class="policy-hero">
+      <div class="policy-tag">Privacy &amp; Data Governance</div>
+      <h1 class="policy-title">Privacy Policy &amp;<br><em>DPDP Act Disclosures</em></h1>
+      <p class="policy-text" style="font-size: 1.1rem; max-width: 740px;">
+        Oriv Studio is committed to uncompromising digital craft and transparent, ethical personal data protection. This policy outlines how we collect, process, safeguard, and respect your personal information in alignment with the principles of India’s <strong>Digital Personal Data Protection Act, 2023 (DPDP Act)</strong> and general privacy best practices.
+      </p>
+
+      <div class="policy-meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Data Fiduciary</span>
+          <span class="meta-val">Shrishti Gupta, operating as Oriv Studio</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Jurisdiction</span>
+          <span class="meta-val">Jharkhand, India (DPDP Act, 2023)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Primary Privacy Contact</span>
+          <span class="meta-val"><a href="mailto:orivra7@gmail.com" style="color: var(--accent-primary);">orivra7@gmail.com</a></span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Effective Date</span>
+          <span class="meta-val">November 2026 (Version 1.0)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Data Fiduciary Identity -->
+    <section class="policy-section" id="fiduciary">
+      <span class="section-num">01 // JURISDICTION &amp; IDENTITY</span>
+      <h2 class="section-title">Data Fiduciary Identity</h2>
+      <p class="policy-text">
+        Under the Digital Personal Data Protection Act, 2023, <strong>Shrishti Gupta, operating as Oriv Studio</strong> (based in <strong>Jharkhand, India</strong>), is the <strong>Data Fiduciary</strong> responsible for determining the purpose and means of processing personal data collected through this website (<a href="https://oriv-studio-website.vercel.app/" style="color: var(--accent-primary);">oriv-studio-website.vercel.app</a>). Oriv Studio is an independent creative technology studio and is not a registered corporate entity unless formally updated in this document.
+      </p>
+      <p class="policy-text">
+        Throughout this document, "we", "us", or "our" refers to Oriv Studio. "You" or "Data Principal" refers to any individual visiting this website or submitting an enquiry.
+      </p>
+    </section>
+
+    <!-- Section 2: Information Actually Collected -->
+    <section class="policy-section" id="data-collected">
+      <span class="section-num">02 // DATA COLLECTED</span>
+      <h2 class="section-title">Personal Information We Collect</h2>
+      <p class="policy-text">
+        We adhere strictly to the principle of <strong>data minimization</strong>. We only collect personal information that you voluntarily choose to provide, or that is strictly necessary for the technical delivery of this website:
+      </p>
+
+      <table class="privacy-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Specific Data Points</th>
+            <th>Source &amp; Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Project Enquiries</strong></td>
+            <td>
+              • Full Name (`name`)<br>
+              • Email Address (`email`)<br>
+              • Brand / Organization (`business`)<br>
+              • Selected Project Type (`service`)<br>
+              • Estimated Budget (`budget`)<br>
+              • Project Scope &amp; Brief (`message`)
+            </td>
+            <td>Voluntarily submitted via the contact form on <code>studio.html</code> to initiate a commercial enquiry or consultation.</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Preference Storage</strong></td>
+            <td>
+              • <code>oriv_theme</code> ('dark' or 'light')
+            </td>
+            <td>Stored locally in your browser's <code>localStorage</code> to remember your visual theme preference. Contains zero identifying personal data.</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Request Logs</strong></td>
+            <td>
+              • Internet Protocol (IP) Address<br>
+              • Browser User-Agent string<br>
+              • HTTP Request Timestamp
+            </td>
+            <td>Automatically processed at the network edge by our hosting provider (Vercel) for DDoS defense, SSL termination, and routing security.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="privacy-alert">
+        <strong>What We DO NOT Collect:</strong> Oriv Studio does not use tracking cookies, behavioral tracking pixels (e.g. Meta Pixel, Google Analytics), fingerprinting SDKs, or session replay tools. We never collect payment card numbers, banking passwords, or biometric information on this site.
+      </div>
+    </section>
+
+    <!-- Section 3: Purpose and Legal Basis (DPDP Sections 5 & 6) -->
+    <section class="policy-section" id="purpose-basis">
+      <span class="section-num">03 // PURPOSE &amp; LAWFUL BASIS</span>
+      <h2 class="section-title">Purpose of Processing &amp; Lawful Basis</h2>
+      <p class="policy-text">
+        In accordance with Section 6 of the DPDP Act, 2023, personal data collected via our contact form is processed strictly on the basis of <strong>your affirmative consent</strong> for specific, legitimate business purposes:
+      </p>
+      <ul style="padding-left: 24px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px;">
+        <li><strong style="color: var(--text-primary);">Responding to Enquiries:</strong> Reviewing project briefs, estimating development velocity and budget, and delivering technical proposals.</li>
+        <li><strong style="color: var(--text-primary);">Pre-Contractual Communications:</strong> Scheduling discovery calls and discussing project scopes.</li>
+        <li><strong style="color: var(--text-primary);">Infrastructure Security:</strong> Preventing automated bot spam and maintaining uptime reliability.</li>
+      </ul>
+      <p class="policy-text">
+        We never sell, rent, monetize, or barter your personal information to data brokers or advertising networks.
+      </p>
+    </section>
+
+    <!-- Section 4: Third-Party Service Providers (Data Processors) -->
+    <section class="policy-section" id="processors">
+      <span class="section-num">04 // DATA PROCESSORS &amp; TRANSFERS</span>
+      <h2 class="section-title">Third-Party Service Providers &amp; Integrations</h2>
+      <p class="policy-text">
+        To deliver our services reliably, we engage select third-party service providers acting as Data Processors. Each is governed by enterprise security safeguards and bound by data processing standards:
+      </p>
+
+      <table class="privacy-table">
+        <thead>
+          <tr>
+            <th>Provider / Service</th>
+            <th>Role in Processing</th>
+            <th>Data Transferred</th>
+            <th>Privacy &amp; Security Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FormSubmit.co</strong></td>
+            <td>Form-to-Email Delivery Gateway</td>
+            <td>Form submission payload (Name, Email, Business, Budget, Message) transmitted over HTTPS to convert enquiries into inbox alerts.</td>
+            <td>Transmitted over HTTPS. FormSubmit acts as an intermediary relay that converts submissions into inbox emails. Governed by FormSubmit's terms of service.</td>
+          </tr>
+          <tr>
+            <td><strong>Google LLC (Gmail)</strong></td>
+            <td>Email Inbox Provider</td>
+            <td>Stores incoming enquiries sent to <code>orivra7@gmail.com</code>.</td>
+            <td>Stores incoming enquiry emails. Governed by Google's standard consumer Privacy Policy and Terms of Service.</td>
+          </tr>
+          <tr>
+            <td><strong>Vercel Inc.</strong></td>
+            <td>Static Edge Hosting &amp; CDN</td>
+            <td>Static website asset delivery, SSL termination, and transient edge request routing.</td>
+            <td>Hosts static website assets and serves traffic over HTTPS. Processes standard technical edge connection logs.</td>
+          </tr>
+          <tr>
+            <td><strong>Google Fonts &amp; Unsplash</strong></td>
+            <td>Typography &amp; Photography CDNs</td>
+            <td>Browser IP address and User-Agent header sent during browser font/image fetch.</td>
+            <td>Standard read-only asset caching.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 5: Data Retention & Security -->
+    <section class="policy-section" id="retention-security">
+      <span class="section-num">05 // RETENTION &amp; SECURITY</span>
+      <h2 class="section-title">Data Retention &amp; Security Safeguards</h2>
+      <div class="bento-card-block">
+        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 10px;">Data Retention Policy (DPDP Section 8(7))</h3>
+        <p class="policy-text">
+          In accordance with Section 8(7) of the DPDP Act, personal data is not retained longer than necessary to satisfy the purpose of collection:
+        </p>
+        <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+          <li><strong>Prospective Enquiries:</strong> Inquiries and related communications are retained for up to <strong>12 months</strong> following the date of last communication, unless a longer retention period is required for legal, regulatory, tax, or legitimate business purposes, after which they are permanently deleted from our mailbox.</li>
+          <li><strong>Active Client Engagements:</strong> Personal data relating to contracted clients is retained for the active project duration plus statutory tax and accounting retention requirements under Indian law (e.g. Income Tax Act, 1961).</li>
+        </ul>
+      </div>
+
+      <div class="bento-card-block">
+        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 10px;">Security Measures &amp; Technical Safeguards</h3>
+        <p class="policy-text">
+          We maintain rigorous administrative and technical security measures to prevent unauthorized access, alteration, disclosure, or loss of personal data:
+        </p>
+        <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+          <li>Website traffic is served over HTTPS using TLS encryption provided by our hosting platform (Vercel).</li>
+          <li>Enquiry emails are accessed via authenticated accounts protected by standard security credentials and multi-factor authentication (MFA/2FA).</li>
+          <li>Our static website architecture eliminates server-side database vulnerabilities (such as SQL injection or credential leaks).</li>
+        </ul>
+        <p class="policy-text" style="font-size: 0.88rem; margin-top: 14px; color: var(--text-dim);"><em>Please note: While we implement reasonable technical safeguards to protect your data, no method of electronic transmission over the internet or electronic storage is completely infallible, and absolute security cannot be guaranteed.</em></p>
+      </div>
+    </section>
+
+    <!-- Section 6: Rights of Data Principals -->
+    <section class="policy-section" id="rights">
+      <span class="section-num">06 // YOUR LEGAL RIGHTS</span>
+      <h2 class="section-title">Your Rights Under the DPDP Act, 2023</h2>
+      <p class="policy-text">
+        Under Sections 11, 12, 13, and 14 of the Digital Personal Data Protection Act, 2023, you hold the following statutory rights regarding your personal data:
+      </p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Access (Sec. 11)</div>
+          <div class="right-desc">Request a summary of your personal data processed by us and the identities of any Data Processors with whom it was shared.</div>
+        </div>
+
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Correction (Sec. 12)</div>
+          <div class="right-desc">Request the correction, completion, or updating of any inaccurate, misleading, or incomplete personal data.</div>
+        </div>
+
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Erasure (Sec. 12)</div>
+          <div class="right-desc">Request the complete deletion of your personal data where retention is no longer necessary for the original enquiry purpose.</div>
+        </div>
+
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Withdraw Consent (Sec. 6)</div>
+          <div class="right-desc">Withdraw your consent at any time as easily as giving it, without impacting the lawfulness of processing prior to withdrawal.</div>
+        </div>
+
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Grievance Redressal (Sec. 13)</div>
+          <div class="right-desc">Access an accessible and readily available grievance redressal mechanism regarding our data processing practices.</div>
+        </div>
+
+        <div class="right-card">
+          <div class="right-title"><span>✦</span> Right to Nominate (Sec. 14)</div>
+          <div class="right-desc">Nominate another individual to exercise your rights in the unfortunate event of death or incapacity.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Grievance Redressal Mechanism -->
+    <section class="policy-section" id="grievance">
+      <span class="section-num">07 // GRIEVANCE OFFICER</span>
+      <h2 class="section-title">Grievance Redressal Mechanism &amp; Officer</h2>
+      <p class="policy-text">
+        In compliance with Section 13(2) of the DPDP Act, 2023, Oriv Studio has designated a <strong>Data Protection &amp; Grievance Redressal Officer</strong> to address all privacy enquiries, rights requests, and complaints:
+      </p>
+
+      <div class="bento-card-block highlight">
+        <div class="officer-card">
+          <div class="officer-avatar">SG</div>
+          <div class="officer-details">
+            <div class="officer-name">Shrishti Gupta</div>
+            <div class="officer-role">Founder &amp; Data Grievance Contact • Oriv Studio</div>
+            <div class="officer-contact">
+              <strong>Email:</strong> <a href="mailto:orivra7@gmail.com?subject=DPDP%20Privacy%20Grievance%20Request">orivra7@gmail.com</a> (Subject: <em>DPDP Privacy Grievance Request</em>)
+            </div>
+            <div class="officer-contact">
+              <strong>Postal / Correspondence Address:</strong> [BUSINESS_CORRESPONDENCE_ADDRESS_PLACEHOLDER] (Formal business correspondence details available upon verified request via email to orivra7@gmail.com)
+            </div>
+            <div class="officer-contact">
+              <strong>Response Timeframe:</strong> We aim to acknowledge inquiries within 48 hours and provide a full response or resolution within <strong>30 days</strong> of receipt.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="policy-text" style="font-size: 0.9rem; margin-top: 14px;">
+        <strong>Escalation to Data Protection Board of India:</strong> Under Section 13(4) of the DPDP Act, 2023, if you do not receive a response from our Grievance Officer within the prescribed timeframe or if you are unsatisfied with the resolution, you hold the legal right to escalate and lodge a complaint directly with the <strong>Data Protection Board of India (DPBI)</strong>.
+      </p>
+    </section>
+
+    <!-- Section 8: Interactive Portfolio Prototype Notice -->
+    <section class="policy-section" id="demo-notice">
+      <span class="section-num">08 // PORTFOLIO CASE STUDIES</span>
+      <h2 class="section-title">Notice Regarding Interactive Case Demos</h2>
+      <p class="policy-text">
+        Our website features interactive demonstration subpages (including <em>Atelier No. 07</em>, <em>Form Dental</em>, <em>Monument Estates</em>, and <em>Maison Noir</em>). These interfaces are <strong>client UI/UX portfolio prototypes</strong> engineered to exhibit design systems and motion capabilities:
+      </p>
+      <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+        <li>Forms embedded inside demonstration subpages operate strictly within local browser memory (via <code>event.preventDefault()</code>).</li>
+        <li><strong>No personal data submitted into demonstration subpage forms is transmitted to any server or recorded in any database.</strong></li>
+        <li>Visitors are explicitly advised not to enter real or sensitive personal credentials into demonstration mockup forms.</li>
+      </ul>
+    </section>
+
+    <!-- Section 9: Policy Updates -->
+    <section class="policy-section" id="updates">
+      <span class="section-num">09 // AMENDMENTS</span>
+      <h2 class="section-title">Amendments to This Policy</h2>
+      <p class="policy-text">
+        We may update this Privacy Policy from time to time to reflect amendments in legal requirements under the DPDP Act or updates to our studio service integrations. The revised version will always be marked with a new "Effective Date" at the top of this page. We encourage you to review this page periodically.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="privacy-footer">
+      <div>© 2026 ORIV STUDIO. All rights reserved. • DPDP Act 2023 Compliance Readiness</div>
+      <div class="footer-links">
+        <a href="studio.html">Studio Flagship</a>
+        <a href="studio.html#work">Selected Work</a>
+        <a href="studio.html#contact">Contact</a>
+        <a href="mailto:orivra7@gmail.com">Privacy Concierge</a>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>

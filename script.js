@@ -596,6 +596,14 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const consentBox = document.getElementById("formConsent");
+      if (consentBox && !consentBox.checked) {
+        formStatus.className = "form-status error";
+        formStatus.textContent = "Please check the consent box to proceed with your enquiry.";
+        consentBox.focus();
+        return;
+      }
+
       const originalBtnText = submitButton.innerHTML;
       submitButton.disabled = true;
       submitButton.innerHTML = "Submitting Enquiry...";

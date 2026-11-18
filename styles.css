@@ -2334,3 +2334,101 @@ img {
     transition: transform 0.1s ease;
   }
 }
+
+
+/* DPDP Compliance Notice & Consent Checkbox Styling */
+.dpdp-notice-box {
+  background: rgba(244, 240, 232, 0.03);
+  border: 1px solid var(--border-subtle, rgba(244, 240, 232, 0.08));
+  border-left: 3px solid var(--accent-primary, #F8591F);
+  padding: 14px 16px;
+  border-radius: 4px;
+  margin: 18px 0 12px;
+}
+
+.dpdp-notice-tag {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary, #F8591F);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.dpdp-notice-body {
+  font-size: 0.82rem;
+  color: var(--text-muted, #9E9A92);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.dpdp-notice-body code {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  background: rgba(244, 240, 232, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--text-primary, #F4F0E8);
+}
+
+.form-consent-group {
+  margin: 14px 0 10px;
+}
+
+.consent-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted, #9E9A92);
+}
+
+.consent-checkbox {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  accent-color: var(--accent-primary, #F8591F);
+  cursor: pointer;
+  margin-top: 3px;
+  border-radius: 4px;
+}
+
+.consent-checkbox:focus-visible {
+  outline: 2px solid var(--accent-primary, #F8591F);
+  outline-offset: 2px;
+}
+
+.consent-text {
+  flex: 1;
+}
+
+.privacy-inline-link {
+  color: var(--accent-primary, #F8591F);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.privacy-inline-link:hover {
+  color: #ff7a45;
+}
+
+.privacy-micro-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  color: var(--text-dim, #7a7670);
+  margin: 6px 0 16px;
+  line-height: 1.4;
+}
+
+.privacy-micro-note svg {
+  flex-shrink: 0;
+  color: var(--accent-primary, #F8591F);
+}

@@ -144,7 +144,7 @@
   <!-- Top Studio Link -->
   <div class="studio-badge">
     <span>✦ ORIV STUDIO Showcase</span>
-    <a href="studio.html#work">← Back to ORIV STUDIO</a>
+    <div style="display:flex; gap:16px; align-items:center;"><a href="studio.html#work">← Back to ORIV STUDIO</a> <a href="privacy.html" style="color: #999; font-size:0.7rem;">Privacy</a></div>
   </div>
 
   <header>
@@ -189,7 +189,11 @@
       <div class="booking-card" id="booking">
         <h3 class="booking-title">Reserve a Consultation</h3>
         <p class="booking-sub">Complimentary digital 3D smile simulation included.</p>
-        <form onsubmit="event.preventDefault(); alert('Consultation requested! Our patient coordinator will confirm your time slot.');">
+        <div class="demo-prototype-banner" style="background: rgba(14, 165, 233, 0.08); border: 1px dashed var(--accent); padding: 10px 14px; border-radius: 6px; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+            <span>✦</span>
+            <span>Interactive Case Prototype — Non-functional simulation. No health or personal data is collected or transmitted.</span>
+          </div>
+          <form onsubmit="event.preventDefault(); alert('[Interactive Demo Prototype] This is a healthcare onboarding UI simulation. No patient data is stored or transmitted.');">
           <div class="b-field">
             <label>Treatment Desired</label>
             <select required>

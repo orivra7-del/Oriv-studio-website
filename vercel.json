@@ -12,6 +12,10 @@
     {
       "source": "/restaurant",
       "destination": "/restaurant.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
     }
   ]
 }
