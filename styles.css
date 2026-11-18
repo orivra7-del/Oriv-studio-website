@@ -2432,3 +2432,16 @@ img {
   flex-shrink: 0;
   color: var(--accent-primary, #F8591F);
 }
+
+/* Founder Navigation Highlight */
+.nav-link-founder {
+  color: var(--accent-primary) !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link-founder:hover {
+  text-shadow: 0 0 10px var(--accent-glow);
+  color: #ff7744 !important;
+}

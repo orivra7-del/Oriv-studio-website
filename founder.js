@@ -55,6 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (skipBtn) skipBtn.addEventListener("click", navigateToStudio);
   if (brandLink) brandLink.addEventListener("click", navigateToStudio);
 
+  // Restore full visibility when navigating back via browser bfcache
+  window.addEventListener("pageshow", (event) => {
+    isNavigating = false;
+    const wrapper = document.querySelector(".founder-wrapper");
+    if (wrapper) {
+      wrapper.style.opacity = "1";
+      wrapper.style.transform = "none";
+    }
+  });
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") navigateToStudio();
   });
