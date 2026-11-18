@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Navigation elements
   const enterBtn = document.getElementById("enterStudioBtn");
   const skipBtn = document.getElementById("skipBtn");
+  const brandLink = document.querySelector(".brand-link");
   const avatar = document.getElementById("founderAvatar");
   const heroSection = document.getElementById("hero");
   const planetRing = document.querySelector(".planet-ring");
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ==========================================================================
-  // A. Seamless Studio Navigation to index.html
+  // A. Seamless Studio Navigation to studio.html
   // ==========================================================================
   let isNavigating = false;
 
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isNavigating = true;
 
     if (prefersReducedMotion || typeof gsap === "undefined") {
-      window.location.href = "index.html";
+      window.location.href = "studio.html";
       return;
     }
 
@@ -45,13 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 0.36,
       ease: "power2.inOut",
       onComplete: () => {
-        window.location.href = "index.html";
+        window.location.href = "studio.html";
       }
     });
   }
 
   if (enterBtn) enterBtn.addEventListener("click", navigateToStudio);
   if (skipBtn) skipBtn.addEventListener("click", navigateToStudio);
+  if (brandLink) brandLink.addEventListener("click", navigateToStudio);
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") navigateToStudio();
