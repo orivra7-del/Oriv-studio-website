@@ -1,8 +1,13 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/founder.html" },
-    { "source": "/founder", "destination": "/founder.html" },
-    { "source": "/studio", "destination": "/index.html" }
+    {
+      "source": "/founder",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/studio",
+      "destination": "/studio.html"
+    }
   ]
 }
