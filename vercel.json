@@ -8,6 +8,10 @@
     {
       "source": "/studio",
       "destination": "/studio.html"
+    },
+    {
+      "source": "/restaurant",
+      "destination": "/restaurant.html"
     }
   ]
 }

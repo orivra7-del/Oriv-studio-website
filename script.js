@@ -239,6 +239,21 @@ document.addEventListener("DOMContentLoaded", () => {
       solution: "Constructed an immersive bento gallery with interactive 3D floor plans, cinematic drone video streaming, and private enquiry portals.",
       stack: ["Next.js", "WebGL", "PostCSS", "Mapbox GL", "Cloudflare Stream"]
     },
+        restaurant: {
+      title: "Maison Noir",
+      category: "Fine Dining & Hospitality Flagship",
+      client: "Maison Noir Mayfair Ltd.",
+      year: "2026",
+      url: "restaurant.html",
+      metrics: [
+        { val: "+210%", label: "Online Table Reservations" },
+        { val: "4.9★", label: "Critic & Guest Rating" },
+        { val: "2 Stars", label: "Michelin Distinction" }
+      ],
+      challenge: "Transform an elite two-Michelin-starred London dining room into an evocative digital flagship that captivates international patrons and automates reservation management.",
+      solution: "Engineered a dark luxury web experience featuring interactive 7-course tasting menus, live sommelier pairing guides, and an instant table booking engine with zero guest friction.",
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Resy API", "Web Audio"]
+    },
     kroma: {
       title: "Kroma AI",
       category: "SaaS & Generative AI Platform",
@@ -268,8 +283,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const filter = btn.getAttribute("data-filter");
 
       projectCards.forEach((card) => {
-        const category = card.getAttribute("data-category");
-        if (filter === "all" || category === filter) {
+        const categoryAttr = card.getAttribute("data-category") || "";
+        const categories = categoryAttr.split(/\s+/);
+        if (filter === "all" || categories.includes(filter)) {
           card.style.display = "flex";
         } else {
           card.style.display = "none";

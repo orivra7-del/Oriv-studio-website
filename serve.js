@@ -22,6 +22,8 @@ const server = http.createServer((req, res) => {
     pathname = '/index.html';
   } else if (pathname === '/studio') {
     pathname = '/studio.html';
+  } else if (pathname === '/restaurant') {
+    pathname = '/restaurant.html';
   } else if (pathname === '/founder') {
     pathname = '/index.html';
   }

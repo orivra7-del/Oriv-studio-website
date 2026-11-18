@@ -792,6 +792,10 @@ img {
   grid-column: span 6;
 }
 
+.project-card.col-12 {
+  grid-column: span 12;
+}
+
 .project-preview {
   height: 260px;
   border-radius: var(--radius-md);
@@ -845,6 +849,27 @@ img {
 .preview-monument {
   background: linear-gradient(135deg, #18181b, #27272a, #52525b);
   color: #fafafa;
+}
+
+
+.project-card.col-12 {
+  grid-column: span 12;
+}
+
+.preview-restaurant {
+  background: linear-gradient(135deg, #120f0d, #2a1f18, #5a3d28);
+  color: #f7ede2;
+}
+
+.preview-restaurant .preview-title,
+.name-restaurant {
+  font-family: 'Italiana', 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+}
+
+.project-card.col-12 .project-preview {
+  height: 290px;
 }
 
 .preview-kroma {
@@ -1865,6 +1890,9 @@ img {
   .project-card.col-6 {
     grid-column: span 6;
   }
+  .project-card.col-12 {
+    grid-column: span 12;
+  }
 
   .estimator-container {
     grid-template-columns: 1fr;
@@ -2001,7 +2029,8 @@ img {
   /* Project Cards */
   .project-card.col-8,
   .project-card.col-4,
-  .project-card.col-6 {
+  .project-card.col-6,
+  .project-card.col-12 {
     width: 100%;
   }
 

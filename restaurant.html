@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Noir — Contemporary Haute Cuisine &amp; Wine Cellar</title>
+  <meta name="description" content="Maison Noir is a two-Michelin-starred culinary flagship in Mayfair, London. Experience hyper-seasonal tasting menus, wood-fired gastronomy, and curated biodynamic vintages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0a09;
+      --surface: #141311;
+      --card-bg: #1c1a17;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dim: rgba(212, 175, 55, 0.25);
+      --amber: #c86234;
+      --text: #f5f0eb;
+      --muted: #9e9589;
+      --border: rgba(245, 240, 235, 0.08);
+      --font-display: 'Italiana', 'Cormorant Garamond', Georgia, serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Studio Back Bar */
+    .studio-badge {
+      background: #000;
+      color: #f5f0eb;
+      font-size: 0.75rem;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .studio-badge a {
+      color: #F8591F;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .studio-badge a:hover { color: #ff7a45; text-decoration: underline; }
+
+    /* Header */
+    header {
+      padding: 22px clamp(20px, 5vw, 64px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 10, 9, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 36px;
+      z-index: 1000;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      letter-spacing: 0.22em;
+      font-weight: 400;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: -2px;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      align-items: center;
+    }
+    nav a { transition: color 0.2s; }
+    nav a:hover { color: var(--gold); }
+    .header-btn {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 9px 22px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      background: transparent;
+      cursor: pointer;
+    }
+    .header-btn:hover {
+      background: var(--gold);
+      color: #0b0a09;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 88vh;
+      padding: clamp(70px, 10vw, 130px) clamp(20px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(to right, rgba(11,10,9,0.95) 0%, rgba(11,10,9,0.78) 55%, rgba(11,10,9,0.92) 100%), url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '✦';
+      font-size: 0.8rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+      line-height: 1.05;
+      font-weight: 400;
+      max-width: 950px;
+      letter-spacing: 0.02em;
+    }
+    .hero h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-desc {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 28px 0 38px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: #0b0a09;
+      font-weight: 600;
+      padding: 14px 32px;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      transition: all 0.3s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gold:hover {
+      background: #e2be49;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      font-weight: 500;
+      padding: 14px 28px;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245, 240, 235, 0.2);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 36px;
+      margin-top: 54px;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Section Global */
+    section {
+      padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 64px);
+      position: relative;
+    }
+    .section-title-wrap {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 60px;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      line-height: 1.1;
+      font-weight: 400;
+      color: #fff;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    /* About / Vision Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-img-box {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-img-box img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .about-img-box:hover img {
+      transform: scale(1.04);
+    }
+    .about-img-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(11, 10, 9, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 18px 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .overlay-caption {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+    .overlay-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pillars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .pillar-card:hover {
+      border-color: var(--gold-dim);
+    }
+    .pillar-num {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .pillar-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Menu Section */
+    .menu-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .menu-tab-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 12px 26px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .menu-tab-btn.active, .menu-tab-btn:hover {
+      background: var(--card-bg);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .menu-container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .menu-panel {
+      display: none;
+    }
+    .menu-panel.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .course-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .course-num {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+    .dish-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: #fff;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .dish-tag {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid rgba(200, 98, 52, 0.3);
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+    .dish-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .dish-pairing {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+    .dish-price {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--gold);
+      text-align: right;
+    }
+
+    /* Tasting Menu Highlight Card */
+    .tasting-pricing-bar {
+      margin-top: 40px;
+      background: var(--card-bg);
+      border: 1px solid var(--gold-dim);
+      padding: 28px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-radius: 4px;
+    }
+    .tasting-info-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #fff;
+    }
+    .tasting-info-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+    .tasting-rate {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    /* Cellar Showcase */
+    .cellar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .cellar-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .cellar-content p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .cellar-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 34px;
+    }
+    .highlight-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 18px 20px;
+    }
+    .highlight-val {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--gold);
+    }
+    .highlight-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Reservation Widget */
+    .reserve-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #100f0d 100%);
+    }
+    .reserve-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--gold-dim);
+      border-radius: 6px;
+      padding: clamp(28px, 5vw, 56px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+    .reserve-form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .form-group-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .guest-selector, .time-selector, .zone-selector {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .choice-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .choice-btn.selected, .choice-btn:hover {
+      border-color: var(--gold);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold-light);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .input-field {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 18px;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .input-field:focus {
+      border-color: var(--gold);
+    }
+    .reserve-submit-btn {
+      background: var(--gold);
+      color: #0b0a09;
+      border: none;
+      padding: 16px 36px;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.3s;
+      align-self: center;
+      width: 100%;
+      max-width: 420px;
+    }
+    .reserve-submit-btn:hover {
+      background: #e5c353;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Modal Confirmation */
+    .booking-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      padding: 20px;
+    }
+    .booking-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .booking-modal {
+      background: var(--card-bg);
+      border: 1px solid var(--gold);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .modal-close-icon {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .booking-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.5rem;
+    }
+    .modal-booking-code {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin: 14px 0;
+      letter-spacing: 0.1em;
+    }
+
+    /* Press Section */
+    .press-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .press-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .press-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .press-author {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Footer */
+    footer {
+      padding: 70px clamp(20px, 5vw, 64px) 40px;
+      background: #080706;
+      border-top: 1px solid var(--border);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+    }
+    .footer-col-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .footer-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 380px;
+      margin-top: 14px;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid, .cellar-grid, .footer-top, .press-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      header nav {
+        display: none;
+      }
+      .course-item {
+        grid-template-columns: 50px 1fr;
+      }
+      .dish-price {
+        grid-column: 2;
+        text-align: left;
+        margin-top: 6px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Studio Return Banner -->
+  <div class="studio-badge">
+    <span>ORIV STUDIO — Client Case Demo</span>
+    <a href="studio.html#work">← Back to ORIV STUDIO (Selected Works)</a>
+  </div>
+
+  <!-- Main Restaurant Header -->
+  <header>
+    <a href="#top" class="brand">
+      <span class="brand-title">MAISON NOIR</span>
+      <span class="brand-sub">Mayfair • London</span>
+    </a>
+    <nav>
+      <a href="#about">The Vision</a>
+      <a href="#menu">Tasting Menu</a>
+      <a href="#cellar">Wine Cellar</a>
+      <a href="#press">Accolades</a>
+      <a href="#reserve">Reservations</a>
+    </nav>
+    <a href="#reserve" class="header-btn">Book a Table</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="eyebrow">Two Michelin Stars • Haute Gastronomy</div>
+    <h1>Where fire, seasonal harvest &amp; <em>culinary craft</em> converge.</h1>
+    <p class="hero-desc">
+      An intimate culinary sanctuary in the heart of Mayfair. Experience hyper-seasonal provenance, wood-fired gastronomy, and over 1,200 rare biodynamic cellar vintages curated for the discerning palate.
+    </p>
+    <div class="hero-actions">
+      <a href="#reserve" class="btn-gold">Reserve Your Experience →</a>
+      <a href="#menu" class="btn-outline">Explore Autumn Tasting Menu ↓</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-val">2 ★</span>
+        <span class="stat-label">Michelin Distinction</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">7</span>
+        <span class="stat-label">Course Tasting Arc</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">1,200+</span>
+        <span class="stat-label">Curated Cellar Vintages</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">4.9★</span>
+        <span class="stat-label">Culinary Critic Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Vision Section -->
+  <section id="about">
+    <div class="section-title-wrap">
+      <span class="section-eyebrow">The Culinary Philosophy</span>
+      <h2 class="section-heading">Gastronomy rooted in nature, elevated by fire.</h2>
+      <p class="section-sub">
+        Led by Executive Chef Antoine Laurent, Maison Noir challenges modern culinary convention by returning to elemental fire cooking while embracing hyper-seasonal botanicals sourced directly from artisan growers.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-img-box">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Maison Noir Signature Miyazaki Wagyu with Black Truffle" loading="lazy">
+        <div class="about-img-overlay">
+          <div>
+            <div class="overlay-caption">Miyazaki Wagyu A5 • Binchotan Sear</div>
+            <div class="overlay-tag">Autumn 2026 Tasting Menu</div>
+          </div>
+          <span style="color: var(--gold); font-size: 1.2rem;">✦</span>
+        </div>
+      </div>
+
+      <div class="pillars-list">
+        <div class="pillar-card">
+          <span class="pillar-num">01 // PROVENANCE</span>
+          <h3 class="pillar-title">Hyper-Seasonal Harvest</h3>
+          <p class="pillar-desc">
+            Wild botanicals, sea truffles, and heirloom grains gathered at daybreak from sustainable biodynamic estates across Devon, Kent, and the Scottish Highlands.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">02 // MASTERY</span>
+          <h3 class="pillar-title">Open-Flame Charcoal Gastronomy</h3>
+          <p class="pillar-desc">
+            Traditional Japanese Kishu Binchotan and aged cherrywood hearths infuse every cut with refined smoke, delicate char, and layered sweetness.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-num">03 // HARMONY</span>
+          <h3 class="pillar-title">Liquid Architecture</h3>
+          <p class="pillar-desc">
+            Curated by Master Sommelier Éléonore Vance, our cellar pairs rare grower Champagnes, aged Grand Crus, and wild fermented botanicals with each course.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section class="menu-section" id="menu">
+    <div class="section-title-wrap">
+      <span class="section-eyebrow">The Seasonal Repertoire</span>
+      <h2 class="section-heading">Curated Menus</h2>
+      <p class="section-sub">Served nightly Tuesday through Sunday. All menus reflect the day’s finest market arrivals.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab-btn active" data-target="tasting">Autumn Tasting Menu (7 Courses)</button>
+      <button class="menu-tab-btn" data-target="alacarte">À La Carte Highlights</button>
+      <button class="menu-tab-btn" data-target="pairings">Sommelier Cellar Pairings</button>
+    </div>
+
+    <div class="menu-container">
+      
+      <!-- Panel 1: Tasting Menu -->
+      <div class="menu-panel active" id="tasting">
+        <div class="course-item">
+          <div class="course-num">I</div>
+          <div>
+            <div class="dish-title">
+              Hokkaido Scallop Crudo
+              <span class="dish-tag">Signature</span>
+            </div>
+            <div class="dish-desc">Finger lime pearls, smoked kelp dashi, sea buckthorn oil, frozen sea urchin snow.</div>
+            <div class="dish-pairing">Pairing: 2018 Blanc de Blancs Extra Brut, Jacques Selosse</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">II</div>
+          <div>
+            <div class="dish-title">Glazed Morel Mushroom Tart</div>
+            <div class="dish-desc">Whipped bone marrow, black shallot reduction, crispy buckwheat crust, Périgord black truffle.</div>
+            <div class="dish-pairing">Pairing: 2020 Savennières Clos du Papillon, Domaine des Baumard</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">III</div>
+          <div>
+            <div class="dish-title">
+              Wild North Sea Turbot
+              <span class="dish-tag">Wood-Fired</span>
+            </div>
+            <div class="dish-desc">Charred leek velouté, oscietra royal caviar butter, sea purslane, smoked fish bone caramel.</div>
+            <div class="dish-pairing">Pairing: 2019 Meursault Les Narvaux, Pierre-Yves Colin-Morey</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">IV</div>
+          <div>
+            <div class="dish-title">Intermezzo: Yuzu &amp; Scots Pine Granité</div>
+            <div class="dish-desc">Elderflower mist, fermented plum gel, crystallized green shiso.</div>
+            <div class="dish-pairing">Pairing: Artisanal Botanical Eau de Vie, Distillerie Cazottes</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">V</div>
+          <div>
+            <div class="dish-title">
+              Dry-Aged Miyazaki Wagyu A5
+              <span class="dish-tag">Charcoal Hearth</span>
+            </div>
+            <div class="dish-desc">Ember-roasted sweet parsnip, charred matsutake jus, fermented black garlic emulsion.</div>
+            <div class="dish-pairing">Pairing: 2015 Côte-Rôtie La Landonne, Domaine René Rostaing</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">VI</div>
+          <div>
+            <div class="dish-title">Aged Comté Réserve (36 Months)</div>
+            <div class="dish-desc">Wild heather honeycomb, warm heritage rye brioche, fig vincotto syrup.</div>
+            <div class="dish-pairing">Pairing: 2012 Vin Jaune d'Arbois, Domaine Stéphane Tissot</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">VII</div>
+          <div>
+            <div class="dish-title">Smoked Valrhona Noir 85%</div>
+            <div class="dish-desc">Maldon sea salt caramel, roasted hazelnut gelato, roasted cocoa nib tuile.</div>
+            <div class="dish-pairing">Pairing: 2004 Quinta do Noval Vintage Port</div>
+          </div>
+          <div class="dish-price">✦</div>
+        </div>
+
+        <div class="tasting-pricing-bar">
+          <div>
+            <div class="tasting-info-title">Autumn Seven-Course Tasting Experience</div>
+            <div class="tasting-info-sub">Approximate duration: 2.5 to 3 hours • Dietary adaptations available upon reservation</div>
+          </div>
+          <div class="tasting-rate">£195 <span style="font-size: 0.9rem; color: var(--muted); font-family: var(--font-sans);">/ guest</span></div>
+        </div>
+      </div>
+
+      <!-- Panel 2: À La Carte -->
+      <div class="menu-panel" id="alacarte">
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Brittany Langoustine en Papillote</div>
+            <div class="dish-desc">Lemongrass broth, kaffir lime oil, sea fennel, toasted brioche soldier.</div>
+          </div>
+          <div class="dish-price">£48</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Charred Romanesco &amp; Smoked Almond Cream</div>
+            <div class="dish-desc">Meyer lemon emulsion, crispy sourdough crumb, black winter truffle carpaccio.</div>
+          </div>
+          <div class="dish-price">£36</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Roasted Squab Pigeon from Vendée</div>
+            <div class="dish-desc">Beetroot confit, bitter cocoa reduction, wild juniper reduction.</div>
+          </div>
+          <div class="dish-price">£58</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Highland Venison Saddle</div>
+            <div class="dish-desc">Smoked celeriac puree, pickled elderberries, roasted bone reduction.</div>
+          </div>
+          <div class="dish-price">£64</div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Sommelier Pairings -->
+      <div class="menu-panel" id="pairings">
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Classic Grand Cru Pairing (7 Flights)</div>
+            <div class="dish-desc">Exceptional producers across Burgundy, Bordeaux, Piedmont, and the Mosel Valley.</div>
+          </div>
+          <div class="dish-price">£135</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Prestige Rare Vintage Flight</div>
+            <div class="dish-desc">Library releases and back-vintage bottles opened and poured tableside.</div>
+          </div>
+          <div class="dish-price">£245</div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-num">✦</div>
+          <div>
+            <div class="dish-title">Botanical &amp; Zero-Proof Elixir Pairing</div>
+            <div class="dish-desc">Wild foraged cold-pressed distillations, sparkling ferments, and rare smoked teas.</div>
+          </div>
+          <div class="dish-price">£85</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Cellar & Private Room Showcase -->
+  <section id="cellar">
+    <div class="cellar-grid">
+      <div class="cellar-content">
+        <span class="section-eyebrow">Subterranean Vault</span>
+        <h2>The Wine Vault &amp; Private Salon</h2>
+        <p>
+          Concealed beneath our main dining room lies an atmospheric 18th-century stone cellar holding over 1,200 curated labels. Available for private tasting experiences, bespoke dinners, and executive celebrations for up to 14 guests.
+        </p>
+
+        <div class="cellar-highlights">
+          <div class="highlight-card">
+            <div class="highlight-val">1,200+</div>
+            <div class="highlight-label">Biodynamic Bottles</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-val">14</div>
+            <div class="highlight-label">Private Dining Seats</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-val">1982</div>
+            <div class="highlight-label">Oldest Library Vintage</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-val">100%</div>
+            <div class="highlight-label">Artisan Provenance</div>
+          </div>
+        </div>
+
+        <a href="#reserve" class="btn-outline">Enquire for Private Vault Dining →</a>
+      </div>
+
+      <div class="about-img-box">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80" alt="Maison Noir Wine Vault & Sommelier Library" loading="lazy">
+        <div class="about-img-overlay">
+          <div>
+            <div class="overlay-caption">The Vault Reserve</div>
+            <div class="overlay-tag">Temperature-Controlled 13°C</div>
+          </div>
+          <span style="color: var(--gold); font-size: 1.2rem;">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Table Reservation Suite -->
+  <section class="reserve-section" id="reserve">
+    <div class="section-title-wrap">
+      <span class="section-eyebrow">Table Bookings</span>
+      <h2 class="section-heading">Reserve Your Experience</h2>
+      <p class="section-sub">Reservations release 30 days in advance at midnight. For parties larger than 6 or private vault buyout, please contact our concierge.</p>
+    </div>
+
+    <div class="reserve-card">
+      <form class="reserve-form" id="bookingForm" onsubmit="event.preventDefault(); submitBooking();">
+        
+        <!-- Guest Selector -->
+        <div>
+          <span class="form-group-title">1. Number of Guests</span>
+          <div class="guest-selector">
+            <button type="button" class="choice-btn" data-val="1">1 Guest</button>
+            <button type="button" class="choice-btn selected" data-val="2">2 Guests</button>
+            <button type="button" class="choice-btn" data-val="4">4 Guests</button>
+            <button type="button" class="choice-btn" data-val="6">6 Guests</button>
+            <button type="button" class="choice-btn" data-val="vault">Private Vault (8–14)</button>
+          </div>
+        </div>
+
+        <!-- Seating Zone -->
+        <div>
+          <span class="form-group-title">2. Seating Ambience</span>
+          <div class="zone-selector">
+            <button type="button" class="choice-btn selected" data-zone="Main Dining Room">Main Dining Room</button>
+            <button type="button" class="choice-btn" data-zone="Chef's Open Kitchen Counter">Chef’s Counter (Front Row)</button>
+            <button type="button" class="choice-btn" data-zone="Subterranean Wine Vault">Wine Vault Lounge</button>
+          </div>
+        </div>
+
+        <!-- Date & Time -->
+        <div class="form-row">
+          <div>
+            <span class="form-group-title">3. Preferred Date</span>
+            <input type="date" class="input-field" id="bookDate" required>
+          </div>
+          <div>
+            <span class="form-group-title">4. Preferred Seating Time</span>
+            <div class="time-selector">
+              <button type="button" class="choice-btn" data-time="18:00">18:00</button>
+              <button type="button" class="choice-btn" data-time="18:45">18:45</button>
+              <button type="button" class="choice-btn selected" data-time="19:30">19:30</button>
+              <button type="button" class="choice-btn" data-time="20:15">20:15</button>
+              <button type="button" class="choice-btn" data-time="21:00">21:00</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guest Details -->
+        <div class="form-row">
+          <div>
+            <span class="form-group-title">5. Full Name</span>
+            <input type="text" class="input-field" id="guestName" placeholder="e.g. Lord Julian Sterling" required>
+          </div>
+          <div>
+            <span class="form-group-title">6. Email Address</span>
+            <input type="email" class="input-field" id="guestEmail" placeholder="e.g. julian@sterling.co.uk" required>
+          </div>
+        </div>
+
+        <!-- Special Requests -->
+        <div>
+          <span class="form-group-title">7. Dietary Preferences &amp; Special Celebrations</span>
+          <input type="text" class="input-field" id="guestNotes" placeholder="e.g. Shellfish allergy, Anniversary celebration, Non-alcoholic flight request">
+        </div>
+
+        <button type="submit" class="reserve-submit-btn">Request Reservation →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reservation Confirmation Modal -->
+  <div class="booking-modal-overlay" id="bookingModal">
+    <div class="booking-modal">
+      <button class="modal-close-icon" onclick="closeBookingModal()">&times;</button>
+      <div class="booking-icon">✓</div>
+      <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: #fff;">Reservation Requested</h3>
+      <p style="color: var(--muted); font-size: 0.95rem; margin-top: 8px;">
+        We have reserved your table provisionally at Maison Noir. A personal confirmation email with itinerary details has been dispatched.
+      </p>
+      <div class="modal-booking-code" id="modalBookingCode">MN-84920</div>
+      <div id="modalSummary" style="background: var(--surface); padding: 16px; border: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); line-height: 1.6; text-align: left; margin-bottom: 24px; border-radius: 4px;">
+        <!-- Dynamic Summary Filled via JS -->
+      </div>
+      <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="closeBookingModal()">Done &amp; Return</button>
+    </div>
+  </div>
+
+  <!-- Press & Accolades -->
+  <section class="press-section" id="press">
+    <div class="section-title-wrap">
+      <span class="section-eyebrow">Critical Acclaim</span>
+      <h2 class="section-heading">Distinction &amp; Reviews</h2>
+    </div>
+
+    <div class="press-grid">
+      <div class="press-card">
+        <p class="press-quote">
+          “Antoine Laurent’s mastery of the charcoal hearth and rare botanicals places Maison Noir among the pinnacle dining experiences of Europe.”
+        </p>
+        <span class="press-author">Michelin Guide Great Britain</span>
+      </div>
+
+      <div class="press-card">
+        <p class="press-quote">
+          “An astonishing culinary journey that balances primal smoke with angelic finesse. The Miyazaki Wagyu course is simply immortal.”
+        </p>
+        <span class="press-author">The Financial Times</span>
+      </div>
+
+      <div class="press-card">
+        <p class="press-quote">
+          “The sommelier cellar vault is a museum of rare biodynamic masterworks. Easily the most exciting table in Mayfair this decade.”
+        </p>
+        <span class="press-author">World’s 50 Best Discovery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-top">
+      <div>
+        <span class="brand-title" style="font-size: 1.8rem;">MAISON NOIR</span>
+        <p class="footer-desc">
+          Contemporary Haute Cuisine • Two Michelin Stars<br>
+          14 Berkeley Square, Mayfair, London W1J 6BQ<br>
+          Reservations Concierge: +44 20 7946 0912
+        </p>
+      </div>
+
+      <div>
+        <span class="footer-col-title">Service Hours</span>
+        <p class="footer-desc" style="margin-top: 0;">
+          Tuesday – Saturday: 17:30 – 00:00<br>
+          Sunday Lunch: 12:00 – 16:00<br>
+          Closed Mondays for foraged harvest prep
+        </p>
+      </div>
+
+      <div>
+        <span class="footer-col-title">Selected Case Demo</span>
+        <p class="footer-desc" style="margin-top: 0;">
+          Bespoke digital flagship engineered by <a href="studio.html" style="color: #F8591F; font-weight: 600;">ORIV STUDIO ↗</a> for luxury hospitality brands worldwide.
+        </p>
+        <a href="studio.html#work" style="display: inline-block; margin-top: 14px; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 2px;">
+          ← View All Studio Projects
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Maison Noir Mayfair Ltd. All rights reserved.</div>
+      <div>Designed &amp; Engineered by ORIV STUDIO</div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.menu-tab-btn');
+    const tabPanels = document.querySelectorAll('.menu-panel');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.getAttribute('data-target');
+        const panel = document.getElementById(target);
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    // Option selectors for reservation form
+    function setupSelector(containerSelector) {
+      const container = document.querySelector(containerSelector);
+      if (!container) return;
+      const btns = container.querySelectorAll('.choice-btn');
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          btns.forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+        });
+      });
+    }
+    setupSelector('.guest-selector');
+    setupSelector('.zone-selector');
+    setupSelector('.time-selector');
+
+    // Default booking date to tomorrow
+    const bookDateInput = document.getElementById('bookDate');
+    if (bookDateInput) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      bookDateInput.value = tomorrow.toISOString().split('T')[0];
+      bookDateInput.min = tomorrow.toISOString().split('T')[0];
+    }
+
+    // Reservation submission
+    function submitBooking() {
+      const guests = document.querySelector('.guest-selector .choice-btn.selected')?.textContent || '2 Guests';
+      const zone = document.querySelector('.zone-selector .choice-btn.selected')?.textContent || 'Main Dining Room';
+      const time = document.querySelector('.time-selector .choice-btn.selected')?.textContent || '19:30';
+      const date = document.getElementById('bookDate')?.value || 'Upcoming Date';
+      const name = document.getElementById('guestName')?.value || 'Guest';
+      const email = document.getElementById('guestEmail')?.value || '';
+      const notes = document.getElementById('guestNotes')?.value || 'None specified';
+
+      const code = 'MN-' + Math.floor(10000 + Math.random() * 90000);
+      document.getElementById('modalBookingCode').textContent = code;
+
+      document.getElementById('modalSummary').innerHTML = `
+        <strong>Guest Name:</strong> ${name}<br>
+        <strong>Party Size:</strong> ${guests}<br>
+        <strong>Ambience:</strong> ${zone}<br>
+        <strong>Date &amp; Time:</strong> ${date} at ${time}<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Special Notes:</strong> ${notes}
+      `;
+
+      document.getElementById('bookingModal').classList.add('open');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
